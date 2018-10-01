@@ -1,0 +1,4 @@
+com\mycompany\fwgreeter\User\User.class
+com\mycompany\fwgreeter\Application.class
+com\mycompany\fwgreeter\User\UserRepository.class
+com\mycompany\fwgreeter\Configuration\Configuration.class

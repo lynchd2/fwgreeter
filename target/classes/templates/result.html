@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div th:switch="${user.visitNumber}"> 
+        <h1 th:case="'1'" th:text="'Welcome, ' + ${user.firstName} + ' ' + ${user.lastName} + '!'"></h1>
+        <h1 th:case="*"th:text="'Welcome back, ' + ${user.firstName} + ' ' + ${user.lastName} + '! Nice to see you again.'"></h1> 
+    </div>
+    <p th:text="'This is visit number ' + ${user.visitNumber} + ' for you.' "></p>
+    <a href="/greeting">Receive another greeting</a>
+    <a href='/all'>Find all Users</a>
+</body>
+</html>
