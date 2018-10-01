@@ -1,3 +1,4 @@
+com\mycompany\fwgreeter\Greeting\GreetingController.class
 com\mycompany\fwgreeter\User\User.class
 com\mycompany\fwgreeter\Application.class
 com\mycompany\fwgreeter\User\UserRepository.class
