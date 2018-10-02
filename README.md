@@ -1,20 +1,13 @@
 # FWGreeter
 
-This application is built using Java, the Spring Boot framework, Maven for the project management, MySQL for database management, Bootstrap for basic styling, and ThymeLeaf for displaying templates and dynamic information from Java objects.
+This application is built using Java, the Spring Boot framework, Maven for project management, MySQL for database management, Bootstrap for basic styling, and ThymeLeaf for displaying templates and dynamic information from Java objects.
 
-This application allows users to receive a greeting once they sign in using their first and last name. Once they do sign in, they are persisted to a MySQL database that clears every start-up of the application. They are given a unique greeting based on if it is their first or last visit.
+This application allows users to receive a greeting once they sign in using their first and last name. Once they do sign in, they are persisted to a MySQL database that clears every start-up of the application. They are given a unique greeting that is determined whether or not they have visited before.
 
 ## Getting Started
 
-Pull for the repo. Navigate to the /target folder and run the jar using java -jar nameOfjar [optional port].
+Pull for the repository. Navigate to the /target folder and run the jar using java -jar nameOfjar [optional port].
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
 
 ### Installing
 
