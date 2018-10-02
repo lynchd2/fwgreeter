@@ -43,7 +43,6 @@ public class GreetingController {
             userRepository.addVisitNumber(user.getFirstName(), user.getLastName());
         } else {
             User n = new User();
-            System.out.println("TEST");
             n.setVisitNumber(1);
             n.setFirstName(user.getFirstName());
             n.setLastName(user.getLastName());

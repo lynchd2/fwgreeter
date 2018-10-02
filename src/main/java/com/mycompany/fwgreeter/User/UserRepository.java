@@ -28,12 +28,12 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     @Query(value="UPDATE user SET visit_number = visit_number + 1 WHERE LOWER(first_name) = LOWER(?1) AND LOWER(last_name) = LOWER(?2)", nativeQuery=true)
     public Integer addVisitNumber(String firstName, String lastName);
     
-    @Query(value="SELECT first_name FROM user", nativeQuery=true)
+    @Query(value="SELECT DISTINCT(first_name) FROM user", nativeQuery=true)
     public String[] allFirstNames();
     
-    @Query(value="SELECT last_name FROM user", nativeQuery=true)
+    @Query(value="SELECT DISTINCT(last_name) FROM user", nativeQuery=true)
     public String[] allLastNames();
     
-    @Query(value="SELECT COUNT(visit_number) FROM user", nativeQuery=true)
+    @Query(value="SELECT SUM(visit_number) FROM user", nativeQuery=true)
     public Integer totalVisitorCount();
 }

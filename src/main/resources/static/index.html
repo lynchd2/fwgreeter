@@ -2,41 +2,15 @@
 <html>
     <head>
         <link rel="stylesheet" href="webjars/bootstrap/3.3.5/css/bootstrap.css">
-        <title>Getting Started: Serving Web Content</title>
+
+        <title>FWGreeter</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <h1>Welcome to the FairWarning Greeter!</h1>
-        <p>Get your greeting by signing in <a href="/greeting">here</a></p>
-        <p>Want to see all of the visits to this application? Go <a href="/all">here</a></p>
-
-
-        <div class="container">
-            <table class="table table-striped">
-                <caption>Your todos are</caption>
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Target Date</th>
-                        <th>Is it Done?</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Todo 1</td>
-                        <td>10/12/2017</td>
-                        <td>No</td>
-                        <td><a class="btn btn-warning" href="/edit-todo">Edit Todo</a></td>
-                        <td><a class="btn btn-warning" href="/delete-todo">Delete Todo</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div>
-                <a class="btn btn-default" href="/add-todo">Add a Todo</a>
-            </div>
-
+        <div class="container text-center">
+            <h1>Welcome to the FairWarning Greeter!</h1>
+            <h4>Get your greeting by signing in <a class="badge badge-secondary"href="/greeting">here</a></h4>
+            <h4>Want to see all of the visits to this application? Go <a class="badge badge-secondary" href="/all">here</a></h4>
         </div>
     </body>
     <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
