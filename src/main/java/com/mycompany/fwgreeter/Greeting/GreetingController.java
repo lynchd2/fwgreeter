@@ -26,18 +26,33 @@ public class GreetingController {
     public String visitNumberOfUser;
 
     //Show the add user form and creates a new oject
+
+    /**
+     * This is the route for the /greeting GET request.
+     * @param model Interface that holds the form attributes that the user fills out 
+     * @return the "greeting" template
+     */
     @GetMapping("/greeting")
     public String greetingForm(Model model) {
         //Parameter in quotes is used to get values from view
         model.addAttribute("user", new User());
-        //Return is the template that is rendered
         return "greeting";
     }
     //Form goes to /greeting but uses POST action this time.
+
+    /**
+     * This is the route for the /greeting POST request that creates a user. If
+     * the user has never visited(depending on their first and last name), a new
+     * user is created in the database and their visit number starts at 1. If a user 
+     * has visited before, their information is pulled and their visit number goes
+     * up by one.
+     * @param user The model attribute that was filled out from the /greeting GET request.
+     * @return the "result" HTML template
+     */
     @PostMapping("/greeting")
     public String greetingSubmit(@ModelAttribute User user) {
         //Creates a new user and gets 
-        visitNumberOfUser = userRepository.findByFirstLastName(user.getFirstName(), user.getLastName());
+        visitNumberOfUser = userRepository.findVisitNumberByFirstLastName(user.getFirstName(), user.getLastName());
         if(visitNumberOfUser != null) {
             user.addVisitNumber(Integer.parseInt(visitNumberOfUser));
             userRepository.addVisitNumber(user.getFirstName(), user.getLastName());
@@ -52,6 +67,13 @@ public class GreetingController {
         return "result";
     }
 
+    /**
+     * This is the route for the /all GET request. This method creates arrays containing strings of all of the
+     * unique first, unique last names, each user's information and the total visitor count for everyone
+     * that has been greeted. Then a JSON object is created, all of the keys and values are created, and the JSON 
+     * object is converted back to a string and returned.
+     * @return the JSON object that is now a string of all the data in the database. 
+     */
     @GetMapping(path="/all")
     public @ResponseBody String getAllUsers() {
         //Grabs all of the neccessary data for constructing the JSON object: first names,

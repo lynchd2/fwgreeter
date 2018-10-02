@@ -18,7 +18,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
-
+    /**
+     * This is the entry point of the application. It is configured to run 
+     * On a port entered by the user after the jar(first command-line option entered).
+     * @param args
+     */
     public static void main(String[] args) {
         Configuration config  = new Configuration();
         config.setPort(args);

@@ -15,6 +15,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Creates the User table with the column names. Also has standard getter and setter
+ * methods for the private variables.
+ */
+
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
     @Id
@@ -58,6 +63,10 @@ public class User {
         this.visitNumber = visitNumber;
     }
     
+    /**
+     * This method adds one to the total visit number.
+     * @param visitNumber
+     */
     public void addVisitNumber(Integer visitNumber) {
         this.visitNumber = visitNumber + 1;
     }

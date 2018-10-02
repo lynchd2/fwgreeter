@@ -20,13 +20,26 @@ import org.springframework.data.jpa.repository.Query;
 // CRUD refers Create, Read, Update, Delete
 
 public interface UserRepository extends CrudRepository<User, Integer> {
-    @Query(value="SELECT visit_number FROM user WHERE LOWER(first_name) = LOWER(?1) AND LOWER(last_name) = LOWER(?2)", nativeQuery=true)
-    public String findByFirstLastName(String firstName, String lastName);
     
+    /**
+     * This method finds the visit number of the user based on their first and
+     * last name. This is not case-sensitive.
+     * @param firstName First name of user
+     * @param lastName Last name of user
+     * @return The visit number of the user.
+     */
+    @Query(value="SELECT visit_number FROM user WHERE LOWER(first_name) = LOWER(?1) AND LOWER(last_name) = LOWER(?2)", nativeQuery=true)
+    public String findVisitNumberByFirstLastName(String firstName, String lastName);
+    
+    /**
+     * This is an update statement to increase the total visits of a user by 1.
+     * @param firstName First name of user
+     * @param lastName Last name of user
+     */
     @Transactional
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query(value="UPDATE user SET visit_number = visit_number + 1 WHERE LOWER(first_name) = LOWER(?1) AND LOWER(last_name) = LOWER(?2)", nativeQuery=true)
-    public Integer addVisitNumber(String firstName, String lastName);
+    public void addVisitNumber(String firstName, String lastName);
     
     @Query(value="SELECT DISTINCT(first_name) FROM user", nativeQuery=true)
     public String[] allFirstNames();

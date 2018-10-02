@@ -13,11 +13,19 @@ public class Configuration {
     
     private String port;
     
+    /**
+     * This getter method always for the access of the private port variable.
+     * @return the port
+     */
     public String getPort() {
         return this.port;
     } 
-    //Determines whether the user configured a custom port, otherwise uses
-    //The Default 8080
+
+    /**
+     * This method sets the port based on the command-line arguments set up the user.
+     * If no argument was provided, the default port is 8080.
+     * @param args
+     */
     public void setPort(String[] args) {
        //Checks to make sure there were any arguments and that it is a string
        if(args.length > 0 && args[0] instanceof String) {
