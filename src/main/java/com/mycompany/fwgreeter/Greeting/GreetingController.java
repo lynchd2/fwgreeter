@@ -56,6 +56,8 @@ public class GreetingController {
         if(visitNumberOfUser != null) {
             user.addVisitNumber(Integer.parseInt(visitNumberOfUser));
             userRepository.addVisitNumber(user.getFirstName(), user.getLastName());
+        } else if (user.getFirstName() == "")  {
+            user.visitNumber = null;
         } else {
             User n = new User();
             n.setVisitNumber(1);

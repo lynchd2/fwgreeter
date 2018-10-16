@@ -9,10 +9,14 @@
         <div class="container">
             <div class="jumbotron">
                 <div th:switch="${user.visitNumber}"> 
-                    <h1 th:case="'1'" th:text="'Welcome, ' + ${user.firstName} + ' ' + ${user.lastName} + '!'"></h1>
+                    <h1 th:case="'1'" th:text="'Welcome ' + ${user.firstName} + ' ' + ${user.lastName} + '!'"></h1>
+                    <h1 th:case="null"th:text="'Welcome, person with no name!'"></h1> 
                     <h1 th:case="*"th:text="'Welcome back, ' + ${user.firstName} + ' ' + ${user.lastName} + '! Nice to see you again.'"></h1> 
                 </div>
-                <p th:text="'This is visit number ' + ${user.visitNumber} + ' for you.' "></p>
+                <div th:switch="${user.visitNumber}">
+                    <p th:case="null"th:text="'Come back again!'"></p>
+                    <p th:case="*" th:text="'This is visit number ' + ${user.visitNumber} + ' for you.' "></p>
+                </div>
                 <a class="btn btn-primary btn-md" href="/greeting">Receive another greeting</a>
                 <a class="btn btn-primary btn-md" href="/all">Find all users</a>
             </div>
