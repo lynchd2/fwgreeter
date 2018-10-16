@@ -10,7 +10,7 @@
             <div class="jumbotron">
                 <div th:switch="${user.visitNumber}"> 
                     <h1 th:case="'1'" th:text="'Welcome ' + ${user.firstName} + ' ' + ${user.lastName} + '!'"></h1>
-                    <h1 th:case="null"th:text="'Welcome, person with no name!'"></h1> 
+                    <h1 th:case="null"th:text="'Welcome person with no name!'"></h1> 
                     <h1 th:case="*"th:text="'Welcome back, ' + ${user.firstName} + ' ' + ${user.lastName} + '! Nice to see you again.'"></h1> 
                 </div>
                 <div th:switch="${user.visitNumber}">
